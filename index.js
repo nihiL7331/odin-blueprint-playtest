@@ -71,7 +71,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: /var/folders/sx/jptdhwyd58x_7zbwg4vh27t40000gn/T/tmpjwwwusae.js
+// include: /var/folders/sx/jptdhwyd58x_7zbwg4vh27t40000gn/T/tmp6ei1l7g2.js
 
   if (!Module['expectedDataFileDownloads']) Module['expectedDataFileDownloads'] = 0;
   Module['expectedDataFileDownloads']++;
@@ -206,21 +206,21 @@ Module['FS_createPath']("/assets", "images", true, true);
 
   })();
 
-// end include: /var/folders/sx/jptdhwyd58x_7zbwg4vh27t40000gn/T/tmpjwwwusae.js
-// include: /var/folders/sx/jptdhwyd58x_7zbwg4vh27t40000gn/T/tmpd4fb0461.js
+// end include: /var/folders/sx/jptdhwyd58x_7zbwg4vh27t40000gn/T/tmp6ei1l7g2.js
+// include: /var/folders/sx/jptdhwyd58x_7zbwg4vh27t40000gn/T/tmpxwujtpz8.js
 
     // All the pre-js content up to here must remain later on, we need to run
     // it.
     if ((typeof ENVIRONMENT_IS_WASM_WORKER != 'undefined' && ENVIRONMENT_IS_WASM_WORKER) || (typeof ENVIRONMENT_IS_PTHREAD != 'undefined' && ENVIRONMENT_IS_PTHREAD) || (typeof ENVIRONMENT_IS_AUDIO_WORKLET != 'undefined' && ENVIRONMENT_IS_AUDIO_WORKLET)) Module['preRun'] = [];
     var necessaryPreJSTasks = Module['preRun'].slice();
-  // end include: /var/folders/sx/jptdhwyd58x_7zbwg4vh27t40000gn/T/tmpd4fb0461.js
-// include: /var/folders/sx/jptdhwyd58x_7zbwg4vh27t40000gn/T/tmp1u_3brb8.js
+  // end include: /var/folders/sx/jptdhwyd58x_7zbwg4vh27t40000gn/T/tmpxwujtpz8.js
+// include: /var/folders/sx/jptdhwyd58x_7zbwg4vh27t40000gn/T/tmpryca54py.js
 
     if (!Module['preRun']) throw 'Module.preRun should exist because file support used it; did a pre-js delete it?';
     necessaryPreJSTasks.forEach((task) => {
       if (Module['preRun'].indexOf(task) < 0) throw 'All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?';
     });
-  // end include: /var/folders/sx/jptdhwyd58x_7zbwg4vh27t40000gn/T/tmp1u_3brb8.js
+  // end include: /var/folders/sx/jptdhwyd58x_7zbwg4vh27t40000gn/T/tmpryca54py.js
 
 
 var arguments_ = [];
@@ -5453,6 +5453,12 @@ async function createWasm() {
       return success ? 0 : -5;
     };
 
+  function _exp(...args
+  ) {
+  abort('missing function: exp');
+  }
+  _exp.stub = true;
+
   function _fd_close(fd) {
   try {
   
@@ -6845,12 +6851,6 @@ async function createWasm() {
   var _emscripten_glViewport = (x0, x1, x2, x3) => GLctx.viewport(x0, x1, x2, x3);
   var _glViewport = _emscripten_glViewport;
 
-  function _pow(...args
-  ) {
-  abort('missing function: pow');
-  }
-  _pow.stub = true;
-
   function _sin(...args
   ) {
   abort('missing function: sin');
@@ -7554,6 +7554,8 @@ var wasmImports = {
   /** @export */
   emscripten_webgl_make_context_current: _emscripten_webgl_make_context_current,
   /** @export */
+  exp: _exp,
+  /** @export */
   fd_close: _fd_close,
   /** @export */
   fd_read: _fd_read,
@@ -7757,8 +7759,6 @@ var wasmImports = {
   glVertexAttribPointer: _glVertexAttribPointer,
   /** @export */
   glViewport: _glViewport,
-  /** @export */
-  pow: _pow,
   /** @export */
   sapp_js_add_beforeunload_listener,
   /** @export */
